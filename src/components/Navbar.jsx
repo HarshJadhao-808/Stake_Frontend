@@ -50,37 +50,25 @@ const Navbar = ({ setSideshow, sideshow }) => {
 			{Token ? (
 				<>
 					{role == "user" ? (
-						<div className="flex items-center justify-around w-40 sm:w-100 sm:w-60  text-white ">
+						<div className="flex items-center justify-around w-40 sm:w-70   text-white ">
 							<Link to="/">
 								<div className="hidden sm:block cursor-pointer group">
-									<h1>Gallery</h1>
-									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
-								</div>
-							</Link>
-							<Link to="/inventory">
-								<div className="hidden sm:block cursor-pointer group">
-									<h1>Inventory</h1>
-									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
-								</div>
-							</Link>
-							<Link to="/trades">
-								<div className="hidden sm:block cursor-pointer group">
-									<h1>Trades</h1>
+									<h1>Stake</h1>
 									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
 								</div>
 							</Link>
 							<div
 								onClick={sideManager}
-								className=" border-2 w-6 h-6 rounded-2xl sm:w-45 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600"
+								className=" border-2 w-6 h-6 rounded-2xl sm:w-37 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600"
 							>
 								<div className="border-2 w-6 h-6 rounded-2xl sm:ml-1 flex items-center justify-center slidebar">
 									<h1 className="text-amber-300 font-bold">{username[0]}</h1>
 								</div>
-								<h1 className="hidden sm:block text-[9px] ml-2">{email}</h1>
+								<h1 className="hidden sm:block text-[12px] ml-2">{email}</h1>
 								<div>
 									<img
 										onClick={() => setDownarrow((prev) => !prev)}
-										className={`hidden sm:block w-3 ml-1.5 transition-all ${!downarrow ? "rotate-180" : ""} `}
+										className={`hidden sm:block w-3 ml-2.5 transition-all ${!downarrow ? "rotate-180" : ""} `}
 										src={downArrow}
 										alt=""
 									/>
@@ -105,13 +93,7 @@ const Navbar = ({ setSideshow, sideshow }) => {
 							>
 								<ul className="text-center leading-15">
 									<Link to="/">
-										<li className="">Gallery</li>
-									</Link>
-									<Link to="/inventory">
-										<li className="">Inventory</li>
-									</Link>
-									<Link to="/trades">
-										<li className="">Trades</li>
+										<li className="">Stake</li>
 									</Link>
 									<li
 										onClick={() => {
@@ -134,24 +116,6 @@ const Navbar = ({ setSideshow, sideshow }) => {
 							<Link to="/admin">
 								<div className="hidden sm:block cursor-pointer group">
 									<h1>Dashboard</h1>
-									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
-								</div>
-							</Link>
-							<Link to="/admin/publish">
-								<div className="hidden sm:block cursor-pointer group">
-									<h1>Publish</h1>
-									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
-								</div>
-							</Link>
-							<Link to="/admin/remove">
-								<div className="hidden sm:block cursor-pointer group">
-									<h1>Remove</h1>
-									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
-								</div>
-							</Link>
-							<Link to="/admin/trades">
-								<div className="hidden sm:block cursor-pointer group">
-									<h1>Trades</h1>
 									<div className="border-2 w-0 transition-all duration-300 group-hover:w-full origin-left scale-0 group-hover:scale-100"></div>
 								</div>
 							</Link>
@@ -192,15 +156,6 @@ const Navbar = ({ setSideshow, sideshow }) => {
 								<ul className="text-center leading-15">
 									<Link to="/admin">
 										<li className="">Dashboard</li>
-									</Link>
-									<Link to="/admin/publish">
-										<li className="">Publish</li>
-									</Link>
-									<Link to="/admin/remove">
-										<li className="">Remove</li>
-									</Link>
-									<Link to="/admin/trades">
-										<li className="">Trades</li>
 									</Link>
 									<li
 										onClick={() => {
