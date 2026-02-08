@@ -112,7 +112,7 @@ const Navbar = ({ setSideshow, sideshow }) => {
 							</div>
 						</div>
 					) : (
-						<div className="flex items-center justify-around w-40 sm:w-150 sm:w-60  text-white ">
+						<div className="flex items-center justify-around w-40 sm:w-70 sm:w-60  text-white ">
 							<Link to="/admin">
 								<div className="hidden sm:block cursor-pointer group">
 									<h1>Dashboard</h1>
