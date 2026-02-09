@@ -2,15 +2,20 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import Hcoin from "/src/assets/Hcoin.svg";
+import Withdraw from "/src/assets/withdraw_hcoin.png";
 import Swal from "sweetalert2";
 
 const Stake = () => {
 	const [data, setData] = useState([]);
 	const [stakeit, setStakeit] = useState(false);
+	const [withdrawit, setWithdrawit] = useState(false);
 	const [stakebutton, setStakebutton] = useState(false);
 	const token = JSON.parse(localStorage.getItem("Token"));
 	const [stakevalue, setStakevalue] = useState({
 		stakeInput: "",
+	});
+	const [withdraw, setWithdraw] = useState({
+		stakeWithdraw: "",
 	});
 	let id;
 	if (token) {
@@ -57,6 +62,23 @@ const Stake = () => {
 			});
 		}
 	};
+	const Withdraw = async () => {
+		try {
+		const res = await axios.put(`http://localhost:8888/user/withdraw/${id}`,{stake:Number(withdraw.stakeWithdraw)},{ headers: { Authorization: `Bearer ${token}` } });
+
+			Swal.fire({
+				text: res.data.message,
+				icon: "success",
+			});
+			getData();
+		} catch (error) {
+			console.log(error);
+			Swal.fire({
+				text: "request cannot be proceeded",
+				icon: "error",
+			});
+		}
+	};
 
 	const SendStake = async () => {
 		const res = await axios.post(
@@ -73,7 +95,7 @@ const Stake = () => {
 	return (
 		<div>
 			<div className="h-17 sm:h-22 bg-black "></div>
-			<div className="h-480 sm:h-[1100px] bg-[rgb(0,0,0)] ">
+			<div className="h-550 sm:h-[1100px] bg-[rgb(0,0,0)] ">
 				<div className="border- lg:w-[80%] h-full sm:h-150 m-auto flex flex-col items-center justify-around ">
 					<div className="border-  h-160 sm:h-40  w-[99%] grid grid-cols-1 sm:grid-cols-3 gap-10 place-items-center">
 						<div className="bg-[rgb(22,22,26)]   shadow-[rgba(0,0,0,0.1)_0px_4px_6px_-1px,rgba(0,0,0,0.06)_0px_2px_4px_-1px] border-[rgba(245,158,11,0.3)] h-[160px] w-[95%] xl:h-full xl:w-80 rounded-2xl  p-5">
@@ -109,7 +131,7 @@ const Stake = () => {
 							</div>
 						</div>
 					</div>
-					<div className="border- h-260  sm:h-60 w-[99%] grid sm:grid-cols-2 grid-cols-1  items-center justify-center gap-5">
+					<div className="border- h-350  sm:h-60 w-[99%] grid sm:grid-cols-2 grid-cols-1  items-center justify-center gap-5">
 						<div className="bg-[rgb(22,22,26)] m-auto  shadow-[rgba(0,0,0,0.1)_0px_4px_6px_-1px,rgba(0,0,0,0.06)_0px_2px_4px_-1px] border-[rgba(245,158,11,0.3)] w-[95%] sm:h-85  rounded-2xl  p-8  h-70">
 							<div className="flex flex-col gap-4 text-center sm:text-left">
 								<div className="flex  gap-2 justify-center sm:justify-start">
@@ -218,7 +240,7 @@ const Stake = () => {
 								</div>
 							</div>
 						</div>
-						<div className=" sm:col-span-2 m-auto w-[99%] sm:w-150 sm:h-97 bg-[rgb(22,22,26)] shadow-[rgba(0,0,0,0.1)_0px_4px6p] rounded-2xl" >
+						<div className=" m-auto w-[99%] sm:w-150 sm:h-97 bg-[rgb(22,22,26)] shadow-[rgba(0,0,0,0.1)_0px_4px6p] rounded-2xl" >
 							<div className="flex flex-col gap-4 text-left p-6">
 								<p className="text-white text-[20px] sm:text-[22px] ">Your Reward</p>
 								<div className=" h-25 p-4 sm:leading-9 ">
@@ -246,6 +268,26 @@ const Stake = () => {
 								>
 									<img src={Hcoin} className="w-5" alt="" />
 									<p>Claim Rewards</p>
+								</div>
+							</div>
+						</div>
+						<div className=" m-auto w-[99%] sm:w-130 sm:h-85 bg-[rgb(22,22,26)] shadow-[rgba(0,0,0,0.1)_0px_4px6p] rounded-2xl" >
+							<div className="flex flex-col gap-4 text-left p-6">
+								<p className="text-white text-[20px] sm:text-[22px] ">Withdraw</p>
+								<div className=" h-25 p-4 sm:leading-9 ">
+									<p className="text-[rgb(156,163,175)] text-[14px] " >AVAILABLE TO WITHDRAW</p>
+									<div className=" flex gap-2 sm:mt-0 mt-4">
+										<p className="sm:text-[30px] text-[22px] text-[rgb(245,158,11)]">{data.stake}</p>
+										<img src={Hcoin} className="w-5 " alt="" />
+									</div>
+								</div>
+									<input type="text" placeholder="500" 	onClick={() => setWithdrawit(true)} onMouseOut={() => setWithdrawit(false)} onChange={(e)=>setWithdraw({...withdraw,[e.target.name] : e.target.value})} name="stakeWithdraw" className={` outline-none border text-white text-[24px] sm:text-[26px] text-center h-10 rounded-[8px] ${withdrawit == false ? "border-[rgb(231,231,231)]" : "border-[rgb(177,48,246)]"}  `} />
+									<div
+									onClick={Withdraw}
+									className="text-white rounded-[6px] mt-3 flex h-12 justify-center items-center gap-2 text-[20px] bg-amber-600 hover:shadow-[0_4px_12px_0px_rgba(217,119,6,0.4)] hover:scale-y-110 duration-200 transition-all cursor-pointer"
+								>
+									<img src={Hcoin} className="w-5" alt="" />
+									<p>Withdraw</p>
 								</div>
 							</div>
 						</div>

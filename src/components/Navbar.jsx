@@ -59,16 +59,16 @@ const Navbar = ({ setSideshow, sideshow }) => {
 							</Link>
 							<div
 								onClick={sideManager}
-								className=" border-2 w-6 h-6 rounded-2xl sm:w-37 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600"
+								className=" border-2 w-6 h-6 rounded-2xl sm:w-37 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600 cursor-pointer"
 							>
-								<div className="border-2 w-6 h-6 rounded-2xl sm:ml-1 flex items-center justify-center slidebar">
+								<div className="border-2 w-6 h-6 rounded-2xl sm:ml-1 flex items-center justify-center slidebar ">
 									<h1 className="text-amber-300 font-bold">{username[0]}</h1>
 								</div>
 								<h1 className="hidden sm:block text-[12px] ml-2">{email}</h1>
 								<div>
 									<img
 										onClick={() => setDownarrow((prev) => !prev)}
-										className={`hidden sm:block w-3 ml-2.5 transition-all ${!downarrow ? "rotate-180" : ""} `}
+										className={`hidden sm:block w-3 ml-2.5 transition-all ${!downarrow ? "rotate-180" : ""}`}
 										src={downArrow}
 										alt=""
 									/>
@@ -81,7 +81,7 @@ const Navbar = ({ setSideshow, sideshow }) => {
 												}),
 												Navigate("/"));
 										}}
-										className={`hidden border-2 fixed w-30 h-12 bg-black top-13 right-2 transition-all origin-top ${downarrow ? "scale-y-0" : "scale-y-100"} sm:flex justify-center items-center `}
+										className={`hidden border-2 fixed w-30 h-12 bg-black top-13 right-2 transition-all origin-top ${downarrow ? "scale-y-0" : "scale-y-100"} sm:flex justify-center items-center cursor-pointer `}
 									>
 										<img className="w-7" src={exit} alt="" />
 										<h1 className="text-[15px]">Logout</h1>
@@ -121,16 +121,16 @@ const Navbar = ({ setSideshow, sideshow }) => {
 							</Link>
 							<div
 								onClick={sideManager}
-								className=" border-2 w-6 h-6 rounded-2xl sm:w-25 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600"
+								className=" border-2 w-6 h-6 rounded-2xl sm:w-25 sm:h-8 sm:rounded-[8px] flex items-center bg-gray-600 cursor-pointer "
 							>
-								<div className=" sm:hidden border-2 w-6 h-6 rounded-2xl sm:ml-1 flex items-center justify-center slidebar">
+								<div className=" sm:hidden border-2 w-6 h-6 rounded-2xl sm:ml-1 flex items-center justify-center slidebar ">
 									<h1 className="text-amber-300 font-bold">{username[0]}</h1>
 								</div>
 								<h1 className="hidden sm:block text-[19px] ml-2">{username}</h1>
 								<div>
 									<img
 										onClick={() => setDownarrow((prev) => !prev)}
-										className={`hidden sm:block w-3 ml-1.5 transition-all ${!downarrow ? "rotate-180" : ""} `}
+										className={`hidden sm:block w-3 ml-1.5 transition-all ${!downarrow ? "rotate-180" : ""}`}
 										src={downArrow}
 										alt=""
 									/>
@@ -143,7 +143,7 @@ const Navbar = ({ setSideshow, sideshow }) => {
 												}),
 												Navigate("/"));
 										}}
-										className={`hidden border-2 fixed w-30 h-12 bg-black top-13 right-2 transition-all origin-top ${downarrow ? "scale-y-0" : "scale-y-100"} sm:flex justify-center items-center `}
+										className={`hidden border-2 fixed w-30 h-12 bg-black top-13 right-2 transition-all origin-top ${downarrow ? "scale-y-0" : "scale-y-100"} sm:flex justify-center items-center cursor-pointer `}
 									>
 										<img className="w-7" src={exit} alt="" />
 										<h1 className="text-[15px]">Logout</h1>

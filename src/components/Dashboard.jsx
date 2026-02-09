@@ -22,7 +22,7 @@ const Dashboard = () => {
 	}, []);
   return (
 		<div>
-			<div className="h-17 sm:h-22 bg-black "></div>
+			<div className="h-17 sm:h-22 bg-black w-screen "></div>
       <div className='bg-black h-1000 w-screen  '>
         <div className='p-3'> 
           <p className='text-white text-[16px] sm:text-[24px] ml-6'>User Management</p>
