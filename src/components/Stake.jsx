@@ -29,7 +29,7 @@ const Stake = () => {
 
 	// console.log(stakevalue);
 	const getData = async () => {
-		const res = await axios.get(`http://localhost:8888/user/getData/${id}`, {
+		const res = await axios.get(`https://stake-backend-h8ba.vercel.app/user/getData/${id}`, {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
@@ -39,7 +39,7 @@ const Stake = () => {
 	};
 
 	const statusUpdate = async() => {
-		const res = await axios.get(`http://localhost:8888/user/statusUpdate/${id}`,{ headers: { Authorization: `Bearer ${token}` } });
+		const res = await axios.get(`https://stake-backend-h8ba.vercel.app/user/statusUpdate/${id}`,{ headers: { Authorization: `Bearer ${token}` } });
 		getData()
 	}
 	
@@ -47,7 +47,7 @@ const Stake = () => {
 
 	const ClaimRewards = async () => {
 		try {
-		const res = await axios.put(`http://localhost:8888/user/claim/${id}`,{},{ headers: { Authorization: `Bearer ${token}` } });
+		const res = await axios.put(`https://stake-backend-h8ba.vercel.app/user/claim/${id}`,{},{ headers: { Authorization: `Bearer ${token}` } });
 
 			Swal.fire({
 				text: res.data.message,
@@ -64,7 +64,7 @@ const Stake = () => {
 	};
 	const Withdraw = async () => {
 		try {
-		const res = await axios.put(`http://localhost:8888/user/withdraw/${id}`,{stake:Number(withdraw.stakeWithdraw)},{ headers: { Authorization: `Bearer ${token}` } });
+		const res = await axios.put(`https://stake-backend-h8ba.vercel.app/user/withdraw/${id}`,{stake:Number(withdraw.stakeWithdraw)},{ headers: { Authorization: `Bearer ${token}` } });
 
 			Swal.fire({
 				text: res.data.message,
@@ -82,12 +82,13 @@ const Stake = () => {
 
 	const SendStake = async () => {
 		const res = await axios.post(
-			`http://localhost:8888/user/stake/${id}`,
+			`https://stake-backend-h8ba.vercel.app/user/stake/${id}`,
 			{ stake: Number(stakevalue.stakeInput) },
 			{ headers: { Authorization: `Bearer ${token}` } },
 		);
 		getData();
 	};
+   	
 
 	useEffect(() => {
 		getData();
@@ -212,8 +213,8 @@ const Stake = () => {
 										running
 									</p>
 								</div>
-								<div className="border-10 sm:w-45 sm:h-45 w-40 h-40 flex m-auto flex-col justify-center items-center rounded-[50%] border-[rgb(243,244,246)] border-t-[rgb(255,196,0)] border-r-[rgb(255,196,0)] ">
-										<p className="text-white sm:text-[28px] text-[24px] " >42:55</p>
+								<div className="border-10 sm:w-45 sm:h-45 w-40 h-40 flex m-auto flex-col justify-center items-center rounded-[50%] border-[rgb(243,244,246)] border-t-[rgb(255,196,0)] border-r-[rgb(255,196,0)]  ">
+										<p className="text-white sm:text-[28px] text-[24px] ">42:44</p>
 										<p className="text-[rgb(156,163,175)] ">until next</p>
 									</div>
 								<div>

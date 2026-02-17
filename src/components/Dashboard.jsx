@@ -14,7 +14,7 @@ const Dashboard = () => {
       }
 
 	const getUsers = async () => {
-		const res = await axios.get("http://localhost:8888/admin/getusers",{ headers: { Authorization: `Bearer ${token}` } });
+		const res = await axios.get("https://stake-backend-h8ba.vercel.app/admin/getusers",{ headers: { Authorization: `Bearer ${token}` } });
 		setData(res.data.data);
 	};
 	useEffect(() => {

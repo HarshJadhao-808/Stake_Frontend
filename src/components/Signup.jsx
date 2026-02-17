@@ -22,7 +22,7 @@ const Signup = () => {
 		event.preventDefault();
 		try {
 			const response = await axios.post(
-				"http://localhost:8888/user/signup",
+				"https://stake-backend-h8ba.vercel.app/user/signup",
 				Signup_Data,
 			);
 			console.log("Signup Successfull", response.data);

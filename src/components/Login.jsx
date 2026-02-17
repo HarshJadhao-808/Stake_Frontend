@@ -22,7 +22,7 @@ const Login = () => {
 		event.preventDefault();
 		try {
 			const response = await axios.post(
-				"http://localhost:8888/user/login",
+				"https://stake-backend-h8ba.vercel.app/user/login",
 				Login_Data,
 			);
             console.log(response)
