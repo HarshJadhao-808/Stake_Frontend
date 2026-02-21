@@ -103,7 +103,7 @@ const Stake = () => {
 							<div className="flex flex-col gap-4 text-center sm:text-left">
 								<p className="text-gray-500">WALLET BLANCE</p>
 								<div className="flex gap-2 justify-center sm:justify-start ">
-									<p className="text-white text-[20px]">{(data.wallet).toFixed(2)}</p>
+									<p className="text-white text-[20px]">{(data.wallet)}</p>
 									<img src={Hcoin} className="w-5" alt="" />
 								</div>
 								<p className="text-green-700">0.01% from last minute</p>
@@ -113,7 +113,7 @@ const Stake = () => {
 							<div className="flex flex-col gap-4 text-center sm:text-left">
 								<p className="text-gray-500">TOTAL STAKED</p>
 								<div className="flex gap-2 justify-center sm:justify-start">
-									<p className="text-white text-[20px]">{(data.stake).toFixed(2)}</p>
+									<p className="text-white text-[20px]">{(data.stake)}</p>
 									<img src={Hcoin} className="w-4" alt="" />
 								</div>
 								<p className="text-green-700">Active</p>
@@ -159,7 +159,7 @@ const Stake = () => {
 									<div
 										onClick={() => {
 											(setStakebutton("25"),
-												setStakevalue({...stakevalue,stakeInput:((25 / 100) * data.wallet).toFixed(2)}))
+												setStakevalue({...stakevalue,stakeInput:((25 / 100) * data.wallet)}))
 										}}
 										onMouseOut={() => setStakebutton(false)}
 										className={`border ${stakebutton == "25" ? "border-[rgb(245,158,11)]" : "border-[rgb(255,255,255)]"} hover:border-[rgb(245,148,11)] w-25 p-2 text-center rounded-[10px] cursor-pointer`}
@@ -169,7 +169,7 @@ const Stake = () => {
 									<div
 										onClick={() => {
 											(setStakebutton("50"),
-												setStakevalue({...stakevalue,stakeInput:((50 / 100) * data.wallet).toFixed(2)}))
+												setStakevalue({...stakevalue,stakeInput:((50 / 100) * data.wallet)}))
 										}}
 										onMouseOut={() => setStakebutton(false)}
 										className={`border ${stakebutton == "50" ? "border-[rgb(245,158,11)]" : "border-[rgb(255,255,255)]"} hover:border-[rgb(245,148,11)] w-25 p-2 text-center rounded-[10px] cursor-pointer`}
@@ -179,7 +179,7 @@ const Stake = () => {
 									<div
 										onClick={() => {
 											(setStakebutton("75"),
-												setStakevalue({...stakevalue,stakeInput:((75 / 100) * data.wallet).toFixed(2)}))
+												setStakevalue({...stakevalue,stakeInput:((75 / 100) * data.wallet)}))
 										}}
 										onMouseOut={() => setStakebutton(false)}
 										className={`border ${stakebutton == "75" ? "border-[rgb(245,158,11)]" : "border-[rgb(255,255,255)]"} hover:border-[rgb(245,148,11)] w-25 p-2 text-center rounded-[10px] cursor-pointer`}
@@ -188,7 +188,7 @@ const Stake = () => {
 									</div>
 									<div
 										onClick={() => {
-											(setStakebutton("MAX"), setStakevalue({...stakevalue,stakeInput:data.wallet.toFixed(2)}));
+											(setStakebutton("MAX"), setStakevalue({...stakevalue,stakeInput:data.wallet}));
 										}}
 										onMouseOut={() => setStakebutton(false)}
 										className={`border ${stakebutton == "MAX" ? "border-[rgb(245,158,11)]" : "border-[rgb(255,255,255)]"} hover:border-[rgb(245,148,11)]  w-25 p-2 text-center rounded-[10px] cursor-pointer`}
@@ -223,7 +223,7 @@ const Stake = () => {
 											Amount Staked
 										</p>
 										<div className="flex gap-2 ">
-											<p className="text-white sm:text-[19px] ">{(data.stake).toFixed(2)}</p>
+											<p className="text-white sm:text-[19px] ">{(data.stake)}</p>
 											<img src={Hcoin} className="sm:w-5 w-4" alt="" />
 										</div>
 									</div>
@@ -233,7 +233,7 @@ const Stake = () => {
 										</p>
 										<div className="flex gap-2 ">
 											<p className="text-white sm:text-[19px] ">
-												{(data.stake*0.01).toFixed(2)}
+												{(data.stake*0.01)}
 											</p>
 											<img src={Hcoin} className="sm:w-5 w-4" alt="" />
 										</div>
@@ -247,14 +247,14 @@ const Stake = () => {
 								<div className=" h-25 p-4 sm:leading-9 ">
 									<p className="text-[rgb(156,163,175)] text-[14px] " >AVAILABLE TO CLAIM</p>
 									<div className=" flex gap-2 sm:mt-0 mt-4">
-										<p className="sm:text-[30px] text-[22px] text-[rgb(245,158,11)]">{(data.AvailableClaim).toFixed(2)}</p>
+										<p className="sm:text-[30px] text-[22px] text-[rgb(245,158,11)]">{(data.AvailableClaim)}</p>
 										<img src={Hcoin} className="w-5 " alt="" />
 									</div>
 								</div>
 									<div className="flex gap-2 justify-between ">
 									<p className="text-[rgb(156,163,175)] text-[15px] sm:text-[18px]">Total Claimed</p> 
 									<div className="flex gap-2">
-									<p className="text-white text-[14px] sm:text-[18px] ">{(data.TotalClaimed).toFixed(2)}</p>
+									<p className="text-white text-[14px] sm:text-[18px] ">{(data.TotalClaimed)}</p>
 									<img src={Hcoin} className="w-4" alt="" />
 									</div>
 									</div>
@@ -278,7 +278,7 @@ const Stake = () => {
 								<div className=" h-25 p-4 sm:leading-9 ">
 									<p className="text-[rgb(156,163,175)] text-[14px] " >AVAILABLE TO WITHDRAW</p>
 									<div className=" flex gap-2 sm:mt-0 mt-4">
-										<p className="sm:text-[30px] text-[22px] text-[rgb(245,158,11)]">{(data.stake).toFixed(2)}</p>
+										<p className="sm:text-[30px] text-[22px] text-[rgb(245,158,11)]">{(data.stake)}</p>
 										<img src={Hcoin} className="w-5 " alt="" />
 									</div>
 								</div>
